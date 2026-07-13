@@ -1,0 +1,23 @@
+tool,version_or_status,path_or_note
+host,workstation,remote HPC login node
+kernel,"Linux 4.18.0-80.7.1.el8_0.x86_64",uname output
+conda,25.11.1,/home/u2024110181382/miniconda3/bin/conda
+python_base,3.12.5,/home/u2024110181382/miniconda3/bin/python
+gapseq,2.0.0,/home/u2024110181382/Project/02.E.coli/biosoft/gapseq/gapseq -v
+Rscript,R 4.4.3,/home/u2024110181382/miniconda3/envs/gapseq/bin/Rscript
+DIAMOND,2.1.14,/home/u2024110181382/.conda/envs/carveme_env_py310/bin/diamond
+BLAST+,2.5.0+,/home/u2024110181382/miniconda3/bin/blastp and makeblastdb
+FastANI,1.34,/home/u2024110181382/.conda/envs/fastani_env
+Prokka,1.12,/home/u2024110181382/miniconda3/envs/prokka_env/bin/prokka
+CheckM2,1.1.0,/home/u2024110181382/.conda/envs/checkm2
+EzClermont,0.7.0,/home/u2024110181382/.conda/envs/ez
+cctyper,1.5.0,/home/u2024110181382/miniconda3/envs/cctyper
+minced,version unresolved on login node,"Java VM failed to allocate heap on login node during --version check"
+SignalP,environment present; executable path unresolved,/home/u2024110181382/miniconda3/envs/signalp
+TMHMM,2.0c,/home/u2024110181382/tmhmm-2.0c/bin/tmhmm
+memote,0.17.0,/home/u2024110181382/.conda/envs/memote-conda
+COBRApy,0.30.0,/home/u2024110181382/.conda/envs/memote-conda
+python-libsbml,5.20.5,/home/u2024110181382/.conda/envs/memote-conda
+Slurm,22.05.6,/usr/bin/sbatch /usr/bin/srun /usr/bin/salloc
+custom_enterobacterales_fastdb,"bytes=10224943; sha256=777b2e293a435ccacb0930a8ce8dbab61835c06290251889d73c60cf286a8e8c",/home/u2024110181382/Project/02.E.coli/biosoft/gapseq/enterobacterales_gapseq_fastdb.faa
+M9_glucose_medium,"bytes=361; sha256=c44887c9c46ccec0bfaec0774e44bbaa832800845e748f901e0d73baf613bfac",/home/u2024110181382/Project/02.E.coli/biosoft/gapseq/server_deploy/M9_glucose_medium.csv

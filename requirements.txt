@@ -1,0 +1,11 @@
+pandas
+numpy
+scipy
+scikit-learn
+matplotlib
+seaborn
+biopython
+python-docx
+openpyxl
+cobra==0.30.0
+memote==0.17.0

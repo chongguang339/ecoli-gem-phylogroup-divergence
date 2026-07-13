@@ -1,0 +1,24 @@
+name: ecoli_gem_phylogroup
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.12
+  - pandas
+  - numpy
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - biopython
+  - python-docx
+  - openpyxl
+  - cobra=0.30.0
+  - diamond=2.1.14
+  - fastani=1.34
+  - blast=2.5.0
+  - prokka=1.12
+  - pip
+  - pip:
+      - memote==0.17.0

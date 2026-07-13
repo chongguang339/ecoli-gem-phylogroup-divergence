@@ -1,0 +1,4 @@
+# gapseq version: 1.4.0
+# Sequence DB version: custom (, NA)
+# genome_format=nucl;taxonomy=;ORF_coverage=;translation_md5=d41d8cd;translation_table=
+ID	Name	Prediction	Completeness	VagueReactions	KeyReactions	KeyReactionsFound	ReactionsFound
