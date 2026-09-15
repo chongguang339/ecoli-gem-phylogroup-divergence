@@ -1,0 +1,11 @@
+﻿step,operation,rule
+1,Input,eggNOG-mapper per-protein annotation table (.emapper.annotations).
+2,Field,Read the KEGG_Pathway field for every annotated protein in each genome.
+3,Tokenization,Split comma-separated annotations and accept only exact tokens matching (ko|map)[0-9]{5}.
+4,Canonicalization,Remove the ko/map prefix and retain the five-digit pathway identifier; paired aliases such as ko00010 and map00010 collapse to one identifier.
+5,Within-protein deduplication,Store canonical identifiers as a set for each protein so duplicate aliases are counted once.
+6,Genome-level support,Count proteins assigned to each canonical pathway identifier within each genome.
+7,Binarization,"Set pathway presence to 1 when at least one annotated protein supports the identifier, otherwise 0; no pathway-completeness threshold was imposed."
+8,Raw feature set,"Take the union across the frozen 1,000-genome cohort, yielding 264 canonical pathway-associated features."
+9,Ontology filter,Classify the 264 features with the recorded KEGG ontology decision table and retain 115 bacterial-relevant features for inferential analyses.
+10,Interpretive boundary,"Features represent pathway-associated ortholog evidence, not complete pathway reconstruction, pathway activity, or flux."

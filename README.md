@@ -1,72 +1,42 @@
-# E. coli Phylogroup-Resolved GEM Workflow
+# Revision 3 reproducibility update
 
-This repository candidate contains the code and workflow-provenance files used for the manuscript:
+This directory contains the code-facing additions for the mSystems resubmission of the E. coli phylogroup-resolved GEM study. The persistent data record is [Zenodo 10.5281/zenodo.21341419](https://doi.org/10.5281/zenodo.21341419).
 
-**High-Throughput GEM Workflow Optimization for Phylogroup-Resolved Functional Divergence Analysis in *Escherichia coli***
+## What changed
 
-## Contents
+- Rebuilt Figure 1D from direct child reaction identifiers in authoritative paired SBML models.
+- Restricted the BacDive MG1655 comparison to nine successfully mapped carbon sources; unresolved amygdalin is retained only in the mapping audit.
+- Added KEGG feature-construction rules and the 264-to-115 ontology-filter audit.
+- Added ANI PCoA sensitivity analyses for 5, 10, 20, and 40 positive-eigenvalue axes.
+- Added the 48-component chemically defined complete-medium recipe, uptake bounds, and checksums.
+- Added a 120-row six-configuration benchmark provenance table. Exact command, CPU, memory, version, checksum, and log fields are recorded for V2-V5. Legacy V1/V6 scheduler CPU and memory fields were not recorded and are explicitly marked unavailable.
+- Regenerated all main and supplementary figures from authoritative tables.
 
-- `scripts/`: Python wrappers, statistical analyses, FBA benchmarking, figure generation, and manuscript-update utilities.
-- `scripts/run_benchmark_modle.py`: benchmark wrapper comparing default and optimized gapseq workflows.
-- `gapseq_assets/`: custom gapseq resources used by the optimized workflow.
-  - `M9_glucose_medium.csv`: defined medium used for M9 glucose-constrained gap-filling.
-  - `enterobacterales_gapseq_fastdb.faa`: compact Enterobacterales-focused gapseq-compatible protein database.
-  - `build_gapseq_compatible_ecoli_fastdb.sh`: database construction script using a documented taxonomic regex.
-- `gapseq_src_modified/`: source-script snapshot of the modified gapseq workflow used during production runs.
-- `WORKFLOW_MODIFICATIONS.md`: detailed description of the gapseq parameter, database, medium, and wrapper-level modifications.
-- `environment.yml`: Conda environment for downstream Python/COBRApy/statistical analyses and available command-line dependencies.
-- `requirements.txt`: pip-oriented Python dependency list.
-- `LICENSE`: code license.
+## Layout
 
-## Optimized gapseq Command
+- `scripts/`: analysis, model-archive, numerical-audit, and final figure-generation scripts used for the revision. Internal manuscript-formatting utilities are intentionally excluded because they are not part of the scientific workflow.
+- `data/`: compact reviewer-facing outputs, including ANI-axis sensitivity and benchmark provenance summaries.
+- `figures/`: final vector PDF figures.
+- `KEGG_264_feature_construction_algorithm.csv`: explicit raw-feature construction rules.
+- `chemically_defined_complete_medium_recipe_and_bounds.csv`: medium composition and maximum uptake bounds.
 
-The optimized reconstruction workflow used the following command pattern:
+Large assets, including the 1,000 gap-fill-annotated SBML models, raw benchmark logs and JSON provenance, external-validation matrices, and 18 MEMOTE HTML reports, are deposited in the Zenodo record rather than duplicated in GitHub.
+
+Scripts that reconstruct revision-wide products resolve the project root from the `ECOLI_GEM_ROOT` environment variable. The final figure script additionally accepts `ECOLI_FIGURE_WORKDIR`. These variables replace machine-specific paths; the expected input tables are identified in each script and the Zenodo workbook/package index.
+
+## ANI axis sensitivity
 
 ```bash
-gapseq doall \
-  -A diamond \
-  -S identical \
-  -E <CUSTOM_FASTDB_FASTA> \
-  -m <M9_GLUCOSE_MEDIUM_CSV> \
-  -f <OUTPUT_DIRECTORY> \
-  -K 4 \
-  <GENOME_FASTA>
+python scripts/run_ani_axis_sensitivity.py \
+  --ani-distance core_genome_ani_distance_matrix_by_genome_uid.csv.gz \
+  --kegg-binary kegg_pathway_genome_matrix_bacterial_filtered_binary.csv \
+  --output-dir ani_axis_sensitivity \
+  --permutations 999 \
+  --seed 20260912
 ```
 
-This command is implemented in `scripts/run_benchmark_modle.py` for the reference-model and benchmark comparisons. Production cohort runs used the same database, medium, and optimized gapseq source-script logic.
+The primary manuscript model uses 20 ANI PCoA axes. Sensitivity analyses show that 5 axes under-adjust genomic structure, whereas the unique phylogroup contribution remains small with 10, 20, or 40 axes.
 
-## Data and Models
+## Provenance boundary
 
-Processed analysis tables are available in the Supplementary Data package. The complete set of 1,000 optimized GEM SBML/XML files is provided as **Data S10**:
-
-- `exported_models.tar.gz`
-- `ecoli_1000_optimized_gem_models_manifest.csv`
-- `ecoli_1000_optimized_gem_models_archive_checksum.csv`
-
-The model archive SHA256 checksum is:
-
-```text
-953f92a5d53dfe2f999d8d7ee99304d81c1e71c30e9dcb2dffff39e2bf84d7fc
-```
-
-## External Dependencies
-
-Some production tools are not fully captured by `environment.yml` because they require independent installation, license acceptance, large databases, or local HPC configuration. These include:
-
-- gapseq 2.0.0 and its R dependencies
-- CRISPRCasTyper or equivalent CRISPR annotation workflow
-- SignalP environment present on the production server; exact executable path/version unresolved during login-node audit
-- TMHMM 2.0c
-- eggNOG-mapper and its database
-- CheckM2 1.1.0 and its database
-- FastANI 1.34 inputs and NCBI datasets
-
-The curated production-software audit is available in `software_versions_curated.csv` / `software_versions_curated.md` in the open-science package.
-
-## Reproducibility Note
-
-Production runs were executed on an HPC server after compute resources were allocated through the local scheduler. Cluster-specific absolute paths are intentionally excluded from this public package. Users should replace local input/output paths with project-relative paths while preserving the documented input table names, gapseq parameters, and output structure.
-
-## Suggested Citation
-
-Please cite the manuscript and the archived Zenodo/Figshare/BioModels record DOI after deposition.
+Reaction counts in the revised benchmark are direct-child SBML reaction counts. Historical JSON fields based on XML string matching are not used as reaction-count evidence. Missing legacy scheduler metadata are never imputed.

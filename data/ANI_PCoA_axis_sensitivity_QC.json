@@ -1,0 +1,21 @@
+{
+  "analysis_date": "2026-09-12",
+  "ANI_distance_source": "09.mSystems_revision_data_freeze\\01_master_manifest\\harmonized_results\\core_genome_ani_distance_matrix_by_genome_uid.csv.gz",
+  "KEGG_feature_source": "15.kegg_ontology_filtering_revision3\\tables\\kegg_pathway_genome_matrix_bacterial_filtered_binary.csv",
+  "n_genomes": 1000,
+  "n_KEGG_features": 115,
+  "maximum_pre_symmetrization_asymmetry": 0.003171000000000101,
+  "positive_eigenvalue_count": 428,
+  "negative_eigenvalue_count": 370,
+  "negative_eigenvalue_sum": -0.07082834647835093,
+  "positive_eigenvalue_sum": 0.4082133851617672,
+  "negative_to_positive_absolute_sum_ratio": 0.1735081431743915,
+  "axis_counts_tested": [
+    5,
+    10,
+    20,
+    40
+  ],
+  "permutations_per_model": 999,
+  "permutation_method": "Freedman-Lane permutation of reduced-model residual rows"
+}
