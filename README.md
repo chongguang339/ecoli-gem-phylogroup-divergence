@@ -16,9 +16,6 @@ This directory contains the code-facing additions for the mSystems resubmission 
 
 - `scripts/`: analysis, model-archive, numerical-audit, and final figure-generation scripts used for the revision. Internal manuscript-formatting utilities are intentionally excluded because they are not part of the scientific workflow.
 - `data/`: compact reviewer-facing outputs, including ANI-axis sensitivity and benchmark provenance summaries.
-- `figures/`: final vector PDF figures.
-- `KEGG_264_feature_construction_algorithm.csv`: explicit raw-feature construction rules.
-- `chemically_defined_complete_medium_recipe_and_bounds.csv`: medium composition and maximum uptake bounds.
 
 Large assets, including the 1,000 gap-fill-annotated SBML models, raw benchmark logs and JSON provenance, external-validation matrices, and 18 MEMOTE HTML reports, are deposited in the Zenodo record rather than duplicated in GitHub.
 
