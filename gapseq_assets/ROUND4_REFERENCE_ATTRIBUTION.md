@@ -1,0 +1,7 @@
+# Round 4 focused-reference provenance
+
+`enterobacterales_gapseq_fastdb_round4.faa` is the exact focused FASTA used by the 180-genome paired reconstructions. Its SHA-256 is `777b2e293a435ccacb0930a8ce8dbab61835c06290251889d73c60cf286a8e8c`; this matches the run-recorded checksum. It has 25,064 FASTA headers, including UniProt and UniRef identifiers. The paired run used `M9_glucose_medium_round4.csv` with SHA-256 `c44887c9c46ccec0bfaec0774e44bbaa832800845e748f901e0d73baf613bfac`.
+
+The focused sequence content was derived from gapseq Bacteria reference sequences, which the [gapseq documentation](https://gapseq.readthedocs.io/en/latest/database/ReferenceSequences.html) attributes to UniProt and distributes in versioned form via Zenodo. The [gapseq project README](https://github.com/jotech/gapseq#license) lists upstream resource licences. The exact upstream database release identifier for the installed historical reference has not been recovered; its `dat/seq/Bacteria/rev/sequences.tar.gz` SHA-256 was `6de7305c937b4a0bbe3a5435a62c95eba2828c5ac56fc4cf1f96c3551644f81c`.
+
+The repository's MIT licence covers author-owned code. It does not replace the original terms or attribution for third-party reference sequences. Confirm that the focused FASTA may be redistributed under the applicable upstream terms before pushing it publicly. If it must be withheld, retain the generation script and hashes and state the resulting exact-reproduction limit in the repository and manuscript availability statement.
