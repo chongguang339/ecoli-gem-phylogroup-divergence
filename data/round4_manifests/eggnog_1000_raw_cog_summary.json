@@ -1,0 +1,12 @@
+{
+  "records": 1000,
+  "exists": 1000,
+  "bytes_match": 1000,
+  "nonzero_R_genomes": 0,
+  "nonzero_X_genomes": 0,
+  "total_R": 0,
+  "total_X": 0,
+  "errors": {
+    "": 1000
+  }
+}

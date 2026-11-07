@@ -1,0 +1,16 @@
+[
+  {
+    "archive": "round4_eggnog_annotations_1000.tar.gz",
+    "bytes": 930999363,
+    "sha256": "a589419c5767b3f34ed359f5a4e7e573cb26f8bcc9439f5b7815ef69c2f69505",
+    "indexed_input_files": 1000,
+    "metadata_matches_frozen_manifest": true
+  },
+  {
+    "archive": "round4_sample180_fastas.tar.gz",
+    "bytes": 301454352,
+    "sha256": "0dc3727fa49a9a61b633af4130546317caf57cff56f955ca57a66761123b0797",
+    "indexed_input_files": 180,
+    "metadata_matches_frozen_manifest": true
+  }
+]
